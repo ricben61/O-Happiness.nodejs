@@ -1,0 +1,130 @@
+<main class="mainAvisClients">
+
+  <h2 class=" text-center">tous les avis clients</h2>
+
+  <section class="gridCom">
+    {{#if AdMod}}
+    {{#each data}}
+    <section class="globCom">
+      <form method="POST" enctype="application/x-www-form-urlencoded" action="/updateComment/{{_id}}/?_method=put">
+        <p>Avis deposer par {{userName}} le {{moment createdAt format= "DD/MM/YYYY"}} à {{moment createdAt
+          format="HH:mm"}}</p>
+        {{!-- <p>Modifié le {{moment updatedAt format="DD/MM/YYYY"}} à {{moment updatedAt format="HH:mm"}}</p> --}}
+
+        <div class="descriptionCom"><textarea name="description" cols="60" rows="2">{{description}}</textarea></div>
+
+        <div class="bouttonCommentaire">
+          <div class="BtnModCom">
+            <button type="submit" class="btnModifComAvisClients"><i class="fa-solid fa-pen-to-square"></i>
+              Modifier</button>
+      </form>
+      </div>
+      <div class="BtnSuppCom">
+        <form method="POST" enctype="application/x-www-form-urlencoded" action="/deleteComment/{{_id}}/?_method=delete">
+
+          <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit"
+            class="btnSuppComAvisClients"><i class="fa-solid fa-trash"></i> Supprimer</button>
+        </form>
+      </div>
+      </div>
+
+    </section>
+
+
+
+    {{/each}}
+    {{else}}
+
+
+
+    {{#each data}}
+    <section class="globCom">
+      <form method="POST" enctype="application/x-www-form-urlencoded" action="/updateComment/{{_id}}/?_method=put">
+        <p>Avis deposer par {{userName}} le {{moment createdAt format= "DD/MM/YYYY"}} à {{moment createdAt
+          format="HH:mm"}}</p>
+        {{!-- <p>Modifié le {{moment updatedAt format="DD/MM/YYYY"}} à {{moment updatedAt format="HH:mm"}}</p> --}}
+        {{#ifCond ../userId userId }}
+        <div class="descriptionCom"><textarea name="description" cols="60" rows="2">{{description}}</textarea></div>
+        {{else}}
+        <div class="descriptionCom"><textarea name="description" cols="60" rows="2"
+            readonly="true">{{description}}</textarea></div>
+        {{/ifCond}}
+
+        {{#ifCond ../userId userId }}
+
+        <div class="bouttonCommentaire">
+          <div class="BtnModCom">
+            <button type="submit" class="btnModifComAvisClients"><i class="fa-solid fa-pen-to-square"></i></button>
+            {{/ifCond}}
+      </form>
+      </div>
+
+
+      {{#ifCond ../userId userId }}
+
+      <div class="BtnSuppCom">
+        <form method="POST" enctype="application/x-www-form-urlencoded" action="/deleteComment/{{_id}}/?_method=delete">
+
+          <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit"
+            class="btnSuppComAvisClients"><i class="fa-solid fa-trash"></i></button>
+          {{/ifCond}}
+        </form>
+      </div>
+      </div>
+
+    </section>
+    {{/each}}
+    {{/if}}
+  </section>
+
+
+  {{#if UsAdMod }}
+  <section class="posterCommentaireavisClients">
+    <div class="PosterCommentaires">
+      <h3 class="h3AvisClients">Poster votre commentaire.</h3>
+      <form class="formAvisClients" method="POST" enctype="application/x-www-form-urlencoded" action="/avisClients/">
+        <textarea class="descrptionCommentaire" name="description" class="textareaAvisClient" cols="70" rows="5"
+          placeholder="écrivez votre commentaire"></textarea>
+        <button type="submit" class="btnPosterAvisClients">Ajouté un commentaire</button>
+      </form>
+    </div>
+    {{else}}
+    <a href="inscription">
+      <H3 class="inscrivezVousAvisClients">inscrivez-vous pour poster un commentaire</H3>
+    </a>
+    <a href="connexion">
+      <H3 class="inscrivezVousAvisClients">ou connectez-vous</H3>
+    </a>
+
+    {{/if}}
+
+
+    </div>
+    <div class="paginationavisClients" aria-label="Page navigation example justify-content-center  ">
+      <ul class="pagination">
+        {{#paginate pagination type="first"}}
+        <li {{#if disabled}} class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Début</a></li>
+        {{/paginate}}
+
+        {{#paginate pagination type="previous"}}
+        <li {{#if disabled}} class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Précedent</a>
+        </li>
+        {{/paginate}}
+
+        {{#paginate pagination type="middle" limit=pagination.pageCount}}
+        <li {{#if active}} class="pageNumber active" {{/if}}><a class="page-link" href="?p={{n}}">{{n}}</a></li>
+        {{/paginate}}
+
+        {{#paginate pagination type="next"}}
+        <li {{#if disabled}} class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Suivant</a></li>
+        {{/paginate}}
+
+        {{#paginate pagination type="last"}}
+        <li {{#if disabled}}class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Dernier</a></li>
+        {{/paginate}}
+      </ul>
+    </div>
+  </section>
+  </div>
+
+</main>
