@@ -1,0 +1,28 @@
+
+
+    <main class="mainConnexion">
+        
+        
+        <form class="formConnexion" action="/connexion/{{users._id}}" method="POST"
+        enctype="application/x-www-form-urlencoded"  >
+           <h1 class="h1Connexion">Connexion</h1>
+           
+            <div class="nomConnexion">
+
+                <label class="labelConnexion" for="exampleFormControlTextarea1">Nom d'utilisateur:</label>   
+                <input name="name" class="inputConnexion" type="text" placeholder="Nom d'utilisateur">
+                <p class="bg-danger" >{{error}}</p>
+            </div>
+            <div class="motdepasseConnexion">
+                <label for="exampleInputPassword1">Mot de passe:</label>
+                <div>
+                <input name="password" id="myInput" type="password" class="inputConnexion" id="exampleInputPassword1" placeholder="Mot de passe">
+                </div>
+                <p class="bg-danger">{{errors}}</p>
+                <input class="checkboxConnexion" type="checkbox" onclick="myFunction()"> Afficher le mot de passe
+            </div>
+            <button type="submit" class="submitConnexion">Connexion</button>
+        </form>
+
+</main>
+
