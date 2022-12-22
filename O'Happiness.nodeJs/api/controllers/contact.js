@@ -1,17 +1,18 @@
 const nodemailer =require('nodemailer');
-
-
-
+require('dotenv').config();
+const EMAIL_USER = process.env.EMAIL_USER
+const EMAIL_PASS = process.env.EMAIL_PASS
+const EMAIL_HOST = process.env.EMAIL_HOST
     
 
 let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: EMAIL_HOST,
     port: 587,
     service:"gmail",
     secure: false, // true for 465, false for other ports
     auth: {
-      user:'brigitesbrigites@gmail.com', 
-      pass: 'xbbveetzoypmtirl', 
+      user:EMAIL_USER, 
+      pass:EMAIL_PASS, 
     },
 
   });
@@ -36,8 +37,8 @@ module.exports={
         const { nom,prenom, email, question, message } = req.body;
 
         const mailOptions={
-            from:"brigitesbrigites@gmail.com",
-            to:'brigitesbrigites@gmail.com',
+            from:EMAIL_USER,
+            to:EMAIL_USER,
             subject:`${question}`,
             html: `Vous avez un nouveau message de  <br>
             Nom: ${nom}<br>
@@ -53,7 +54,7 @@ module.exports={
                 res.send("error")
             } else {
                 console.log("Email envoyer");
-                res.render("/")
+                res.redirect("/")
             } 
         });
 

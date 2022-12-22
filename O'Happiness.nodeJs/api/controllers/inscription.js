@@ -2,16 +2,23 @@ const users = require('../models/users');
 const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
 const nodemailer =require('nodemailer');
-const { mailHost,mailUser,mailPass } = process.env;
+
+
+require('dotenv').config();
+const EMAIL_USER = process.env.EMAIL_USER
+const EMAIL_PASS = process.env.EMAIL_PASS
+const EMAIL_HOST = process.env.EMAIL_HOST
+    
+
 
 let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: EMAIL_HOST,
     port: 587,
     service:"gmail",
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "brigitesbrigites@gmail.com", // generated ethereal user
-      pass: "xbbveetzoypmtirl", // generated ethereal password
+      user: EMAIL_USER, // generated ethereal user
+      pass: EMAIL_PASS, // generated ethereal password
     },
 
   });
@@ -43,9 +50,9 @@ module.exports = {
 
     getVerify:async (req,res)=>{ 
 
-        console.log(req.params.id);
-        console.log(rand);
-        console.log(mailOptions);
+        // console.log(req.params.id);
+        // console.log(rand);
+        // console.log(mailOptions);
 
         if (rand == req.params.id) {
            
@@ -70,7 +77,7 @@ module.exports = {
         host = req.get('host') //recupere l'adress du site hebergant le mail
         link = "http://"+host+"/verify/" + rand
         mailOptions={
-            from:"brigitesbrigites@gmail.com",
+            from:EMAIL_USER,
             to: req.body.email,
             subject:'merci de confirmer votre compte mail',
             rand:rand,
