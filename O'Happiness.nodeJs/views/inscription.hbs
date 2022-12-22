@@ -7,6 +7,14 @@
     
     <form class="FormulaireInscription" method="POST" enctype="application/x-www-form-urlencoded" action="/updateUser/{{users._id}}/?_method=put"
         class="border border-1 border-dark p-3 rounded-5">
+        {{#if AdMod}}
+             <select name="role" class="form-control" id="exampleFormControlSelect1">
+                    <option>{{users.role}}</option>
+                    <option>Admin</option>
+                    <option>Moderateur</option>
+                    <option>User</option>
+                </select>
+        {{/if}}
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Nom utilisateur</label>
             <input id="InputInscription" name="name" class="form-control" type="text" placeholder="Nom d'utilisateur" value="{{users.name}}">
@@ -27,7 +35,9 @@
             <input id="myInput2" name="confirmPassword" type="password" class="form-control rounded-right" id="exampleInputPassword2"
                 placeholder="Confirmation de mot de passe">
             <input type="checkbox" onclick="myFunction2(),myFunction()"> voir les mots de passe
+            
         </div>
+        
         
         {{!-- <div class="form-group">
             <label for="exampleInputPassword1">Mot de passe</label>
@@ -49,9 +59,13 @@
         </div>
     </div>
     {{/if}}
-        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="submit" class="btn btn-primary"> Modifier</button>
+        
     </form>
-
+<form method="POST" enctype="application/x-www-form-urlencoded"
+                    action="/deleteUser/{{userId}}/?_method=delete">
+        <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit" class="btn btn-danger " style="width: 100%;"><i class="fa-solid fa-trash"></i> Supprimer le profil</button>
+         </form>
 </section>
 
 {{else}}
@@ -61,22 +75,22 @@
     <form class="FormulaireInscription" action="/inscription" method="POST"
         enctype="application/x-www-form-urlencoded">
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Nom d'utilisateur:</label>
-            <input id="InputInscription" name="name" class="form-control" type="text" placeholder="Nom d'utilisateur" value="{{get.name}}">
+            <label for="nameInscription">Nom d'utilisateur:</label>
+            <input id="nameInscription" name="name" class="form-control" type="text" placeholder="Nom d'utilisateur" value="{{get.name}}">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">adresse email:</label>
+            <label for="InputInscription">adresse email:</label>
             <input id="InputInscription" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                 placeholder="email" value="{{get.email}}">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Mot de passe:</label>
+            <label for="myInput">Mot de passe:</label>
             <input id="myInput" name="password"  type="password" class="form-control" id="exampleInputPassword1"
                 placeholder="Mot de passe">
             
         </div>
         <div class="form-group mb-3 ">
-            <label for="exampleInputPassword1">Confirmation de mot de passe:</label>
+            <label for="myInput2">Confirmation de mot de passe:</label>
             <input id="myInput2" name="confirmPassword" type="password" class="form-control rounded-right" id="exampleInputPassword2"
                 placeholder="Confirmation de mot de passe">
             <input  type="checkbox" onclick="myFunction2(),myFunction()"> Voir vos mots de passe.

@@ -29,31 +29,32 @@
     <div class="contacterContact">
             <h1 class="h1Contact">Nous contacter</h1>
 
-        <form class="formContact">
+        <form class="formContact" method="post" role="form" enctype="application/x-www-form-urlencoded" action="/contact">
 
-          <label class="labelContact" for="nom">Nom</label>
-          <input class="inputContact" type="text" id="nomContact" name="name" placeholder="votre Nom..">
+          <label class="labelContact" for="nomContact">Nom</label>
+          <input class="inputContact" type="text" id="nomContact" name="nom" placeholder="votre Nom..">
        
 
         
-          <label class="labelContact" for="prenom">Prénom</label>
+          <label class="labelContact" for="prenomContact">Prénom</label>
           <input class="inputContact" type="text" id="prenomContact" name="prenom" placeholder="votre prenom..">
-        
+
+          <label class="labelContact" for="emailContact">Email</label>
+          <input class="inputContact" type="email" id="emailContact" name="email" placeholder="votre email..">
 
         
-          <label class="labelContact" for="question">Question</label>
+          <label class="labelContact" for="questionContact">Question</label>
           <select class="selectContact" id="questionContact" name="question">
-            <option value="devis">Demande de rdv</option>
-            <option value="information">Demande d'information</option>
-            <option value="analyse">Demande d'analyse</option>
-            <option value="autre">Autre demande</option>
+            <option value="Demande de rdv">Demande de rdv</option>
+            <option value="Demande d'information">Demande d'information</option>
+            <option value="Demande d'analyse">Demande d'analyse</option>
+            <option value="Autre demande">Autre demande</option>
           </select>
       
-          <label class="labelContact" for="sujet">Sujet</label>
-          <textarea id="sujetContact" name="sujet" placeholder="détail de votre demande.." ></textarea>
-      
-          <input class="submitContact" type="submit" value="Envoyer">
-        
+          <label class="labelContact" for="sujetContact">Message</label>
+          <textarea id="sujetContact"  name="message" placeholder="détail de votre demande.." ></textarea>
+                
+        <button  class="submitContact" type="submit" >Envoyer</button>
         </form>
       </div>
 

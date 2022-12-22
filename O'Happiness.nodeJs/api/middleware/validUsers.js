@@ -3,7 +3,7 @@ const { check, validationResult } = require('express-validator');
 const users = require('../models/users');
 
 exports.validateUserSignUp = [
-    check('name').trim().escape().isLength({min:3, max:20}).
+    check('name').toLowerCase().trim().escape().isLength({min:3, max:20}).
     withMessage('Le nom doit faire entre 3 et 20 caracteres!')
     .custom(async (value, {req, loc, path}) => {
         const user = await users.findOne({
@@ -14,7 +14,7 @@ exports.validateUserSignUp = [
         }
     }),
     
-    check('email').normalizeEmail().isEmail().withMessage('Email non valide')
+    check('email').toLowerCase().isEmail().withMessage('Email non valide')
     // check('password').trim().escape().not().isEmpty().isLength({min:5, max:20}).
     // withMessage('Le mot de passe doit faire minimum 5 character!'),
     .custom(async (value, {req, loc, path}) => {
@@ -45,7 +45,7 @@ exports.validateUserSignUp = [
 
 exports.validateUserUpdate = [
     
-    check('name').trim().escape().isLength({min:3, max:20}).
+    check('name').toLowerCase().trim().escape().isLength({min:3, max:20}).
     withMessage('Le nom doit faire entre 3 et 20 caracteres!')
     .custom (async (value, {req, loc, path}) => {
         //on recupere l'utilisateur par son id
@@ -69,7 +69,7 @@ exports.validateUserUpdate = [
     }),
    
     
-    check('email').normalizeEmail().isEmail().withMessage('Email non valide')
+    check('email').toLowerCase().isEmail().withMessage('Email non valide')
     // check('password').trim().escape().not().isEmpty().isLength({min:5, max:20}).
     // withMessage('Le mot de passe doit faire minimum 5 character!'),
     .custom (async (value, {req, loc, path}) => {

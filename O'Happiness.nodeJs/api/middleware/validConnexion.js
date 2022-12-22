@@ -5,9 +5,7 @@ const users = require('../models/users');
 exports.validConnexion = [
     check('name').trim().escape().isLength({min:3, max:20}).
     withMessage('Le nom doit faire entre 3 et 20 caracteres!')
-    
-
-   ,
+     ,
       
     check("password")
       .isLength({ min: 8, max: 15 })

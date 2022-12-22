@@ -10,6 +10,8 @@ const outilsEtMethodes=require('./controllers/outilsEtMethodes')
 const prestations=require('./controllers/prestations')
 const contact=require('./controllers/contact')
 const avisClients = require('./controllers/avisClients')
+const gestionCommentaires=require('./controllers/gestionCommentaires')
+
 
 
 //------------------- mes middleware------------------
@@ -38,18 +40,23 @@ router.route ('/prestations')
     .get(prestations.get)  
     
 router.route ('/contact') 
-    .get(contact.get)      
+    .get(contact.get)  
+    .post(contact.post)    
 
 
 router.route('/deleteUser/:id')
-    .delete(gestion.delete)
+    .delete(auth,gestion.delete)
 
 router.route ('/updateUser/:id')
     .get(inscription.get)
-    .put(validUsers.validateUserUpdate,inscription.put) 
-       
+    .put(auth,validUsers.validateUserUpdate,inscription.put) 
+
+    
+router.route('/verify/:id')
+    .get(inscription.getVerify)
 
 router.route('/inscription')
+    
     .get(inscription.get)
     .post(validUsers.validateUserSignUp,inscription.post)
 
@@ -59,17 +66,21 @@ router.route('/connexion')
     .post(validConnexion.validConnexion,connexion.post )
 
 router.route('/deleteCookie')
-    .delete(connexion.deleteCookie)
+    .delete(auth,connexion.deleteCookie)
 
 router.route('/gestion')
     .get(auth,admin,gestion.get)
    
-router.route('/avisClients/')
+router.route('/avisClients')
     .get(avisClients.get)
     .post(checkUsers,avisClients.post)
 
+router.route('/gestionCommentaires') 
+    .get(auth,gestionCommentaires.get)
+
 router.route('/updateComment/:id')
-    .put(avisClients.put)
+.get(avisClients.get)
+    .put(auth,avisClients.put)
 
 router.route('/deleteComment/:id')
     .delete(auth,checkUsers,avisClients.deleteComment)

@@ -9,24 +9,16 @@ const { data } = require('jquery');
 
 module.exports={
     get: async (req, res) => {
-    //     const count = 5;
-    //     const perPage = 20;
-    //     const page = req.query.p;
-        
-        
-    //     await commentaire.find(req.params.id).skip((count * page) - count).limit(count).lean().exec((err, commentairesData) => {
-    //             if(commentairesData){
-    //     res.render('avisClients', {  data: commentairesData, pagination:{page:req.query.p ||1, pageCount: Math.ceil(perPage /count)}})
-
-    //     }},
-                         
-    // )
-   
+      
     const perPage = 6;
     const page = req.query.p;
 
     await commentaire.find(req.params.id).sort( {createdAt : -1 } ).skip((perPage * page) - perPage).limit(perPage).lean().exec(async (err, commentaireData) => {
         await commentaire.find(req.params.id).countDocuments().lean().exec((err, count) => {
+           
+           
+           
+           
             if (err) {
                 req.flash('error_msg')
                 return res.redirect('/')
@@ -58,13 +50,7 @@ module.exports={
        const userId = decodedToken.userId;  
         const user =  await users.findById(userId).lean()
 
-        // const errors = validationResult(req)
-        // if (!errors.isEmpty()) {                   
-        //     let body = req.body;
-        //     let get = {commentaire : body.commentaire}
-        //     return res.status(422).render('description', { errors: errors.array(),get:get });
-        // }
-        // console.log(user);
+       
            let newCommentaire= new commentaire({
                description: req.body.description,
                userId: userId,
@@ -124,7 +110,7 @@ module.exports={
         const userId = decodedToken.userId;
         const commentId = await commentaire.findById(req.params.id).lean()
         const role = decodedToken.role
-            console.log("coucou");
+            // console.log("coucou");
         if(role === "Admin"  || role === "Moderateur"){
             await commentaire.findByIdAndDelete(req.params.id)
              res.redirect('back')

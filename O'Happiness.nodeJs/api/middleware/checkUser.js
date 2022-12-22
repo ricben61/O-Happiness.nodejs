@@ -6,6 +6,7 @@ module.exports = (req, res, next) => {
     if (token) {
         jwt.verify(token, 'RANDOM_TOKEN_SECRET', async (err, decodedToken) => {
 
+            
             if (err) {
                 // console.log(err.message);
                 res.locals.users = null;
@@ -13,14 +14,17 @@ module.exports = (req, res, next) => {
                 next();
             }
             else {
+
+               
                 res.locals.userId=decodedToken.userId
                 res.locals.name = decodedToken.name
                 res.locals.role = decodedToken.role
-                if ( decodedToken.role === "Admin"){
+
+                if ( decodedToken.role === "Admin"  ){
                    res.locals.Admin = decodedToken.role
 
                 }
-                if (decodedToken.role === "Moderateur") {
+                if (decodedToken.role === "Moderateur"  ) {
                     res.locals.Moderateur = decodedToken.role
                 }
                 if (decodedToken.role === "Admin" || decodedToken.role === "Moderateur" ){
@@ -31,6 +35,9 @@ module.exports = (req, res, next) => {
                 }
                 if (decodedToken.userId === "userId"){
                     res.locals.userId = decodedToken.userId 
+                }
+                if (decodedToken.role === "User"){
+                    res.locals.User = decodedToken.role 
                 }
                 
 

@@ -1571,74 +1571,89 @@ main {
   z-index: 9999;
   margin: auto;
 }
+@media screen and (max-width: 800px){
+
+  .mainAvisClients{
+    display: block;
+  
+  }
+
+  .gridCom {
+    display: block;
+  }
+  
+  .globCom {
+    width: 95%;
+    margin: auto;
+    border-radius: 15px;
+    background-color: #BAD2B0;
+    margin: 15px;
+    text-align: center;
+  
+  }
+  
+  .bouttonCommentaire {
+    width: 100%;
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: space-around;
+  }
+  
+  .descriptionCom textarea {
+    resize: none;
+    border: none;
+    width:200px;
+    background-color: #BAD2B0;
+    text-align: center;
+  }
+  
+  .BtnModCom {
+    display: inline-block;
+  }
+  
+  .BtnSuppCom {
+    display: inline-block;
+  }
+  .titreRechecheAvisClients{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    
+  }
+  .h2avisClients{
+    display: inline-block;
+    
+  }
+  .posterCommentaireavisClients{
+      
+    display: block;
+    justify-content: space-between;
+  }
+  .PosterCommentaires{
+    width: 200px;
+    margin-left: 15px;
+  }
+ .descrptionCommentaire{
+  width: 350px;
+ }
+  .btnModifComAvisClients{
+    background-color: rgb(83, 118, 221);
+    border-radius: 15px;
+  }
+  .btnSuppComAvisClients{
+    background-color: rgb(237, 104, 130);
+    border-radius: 15px;
+  }
+ .paginationavisClients{
+  width: 250px;  
+ }
+  .page-link{
+  padding: 0.5vh;
+  size: 1.5vh;
+ }
+}
 
 
-/* .tableauAvisClients{
-  margin: auto;
-  background-color: #BAD2B0;
-  width: 95%;
-  border-radius: 20px;
-  padding-top: 4vh;
-  padding-bottom: 4vh ;
-
-}
-
-.PosterCommentaires{
-  display: block;
-  background-color: #BAD2B0;
-  margin: auto;
-  width: 95%;
-  min-width: 180px;
-  min-height: 300px;
-  text-align: center;
-  border-radius: 25px;
-  margin: auto;
-}
-.descrptionCommentaire{
-  background-color: #BAD2B0;
-  width: 100%;
-  text-align: center;
-}
-.tableauNomAvisClients{
-  text-align: center;
-  vertical-align: middle;
-}
-.btnSuppAvisClients{
-  vertical-align: middle;
-}
-.DatetabAvisClients{
-  vertical-align: middle;
-}
-
-.h3AvisClients{
-  text-align: center;
-  padding-top: 2vh;
-}
-.formAvisClients{
-  margin: auto;
-  text-align: center;
-}
-.textareaAvisClient{
-  text-align: center;
-  margin-top: 3vh;
-  margin-bottom: 3vh;
-}
-.btnPosterAvisClients{
-  display: block;
-  margin: auto;
-  text-align: center;
-  background-color: #254eb6;
-  color: #ffffff;
-  border-radius: 15px;
-}
-
-.titreCommentaireAvisClient{
-  display: flex;
-  text-align: center;
-}
-.inscrivezVousAvisClients{
-  text-align: center;
-} */
 /* --------------------------------------------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------css page d'inscription------------------------------------------------- */
 .mainInscription {
@@ -1671,7 +1686,7 @@ main {
 
 }
 
-#InputInscription {
+#InputInscription,#nameInscription {
   background-color: #BAD2B0;
   border: 0;
   border-radius: 0;
@@ -1679,8 +1694,6 @@ main {
   text-align: center;
   font-style: italic;
   padding-bottom: 0;
-
-
 
 }
 
@@ -1696,6 +1709,9 @@ main {
 
 }
 
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------css page gestion de mes recettes--------------------------------------------- */
 
 
 
@@ -1705,11 +1721,22 @@ main {
 
 
 
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* ----------------------------------css page verify--------------------------------------------------------------------------------- */
+.mainVerify{
 
-
-
-
-
+  height: 90vh;
+  text-align: center;
+      
+}
+#DivVerify{
+  width: 90%;
+  height: 60%;
+  background-color: #BAD2B0;
+  margin: auto;
+  border-radius: 20px;
+  padding-top: 50px;
+}
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
 /* --------------------------------------------------css du footer------------------------------------------------------ */
@@ -1808,6 +1835,7 @@ main {
   .footer {
     width: 100%;
     height: auto;
+   
   }
 
   .ulFooter {

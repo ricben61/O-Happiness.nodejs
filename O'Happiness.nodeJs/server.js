@@ -18,9 +18,8 @@ const Handlebars = require("handlebars");
 const jwt = require('jsonwebtoken');
 const checkUser = require('./api/middleware/checkUser');
 const paginate = require('handlebars-paginate');
-
-
-
+const nodemailer = require('nodemailer')
+require('dotenv').config();
 
 
 // Handlebars

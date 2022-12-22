@@ -23,6 +23,10 @@ const usersSchema = mongoose.Schema ({
     role:{
        type:String,
        default:"User"
+    },
+    isVerify:{
+        type:Boolean,
+        default:false
     }
     
 

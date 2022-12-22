@@ -7,7 +7,7 @@
     {{#each data}}
     <section class="globCom">
       <form method="POST" enctype="application/x-www-form-urlencoded" action="/updateComment/{{_id}}/?_method=put">
-        <p>Avis deposer par {{userName}} le {{moment createdAt format= "DD/MM/YYYY"}} à {{moment createdAt
+        <p>Avis déposé par {{userName}} le {{moment createdAt format= "DD/MM/YYYY"}} à {{moment createdAt
           format="HH:mm"}}</p>
         {{!-- <p>Modifié le {{moment updatedAt format="DD/MM/YYYY"}} à {{moment updatedAt format="HH:mm"}}</p> --}}
 
@@ -54,21 +54,22 @@
 
         <div class="bouttonCommentaire">
           <div class="BtnModCom">
-            <button type="submit" class="btnModifComAvisClients"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="submit" class="btnModifComAvisClients"><i class="fa-solid fa-pen-to-square"></i> Modifier </button>
+          </div>
             {{/ifCond}}
       </form>
-      </div>
+      
 
-
+      {{!-- ifcond permet de faire une fonction en fonction de ce quon a declarer dans le fichier server.js --}}
       {{#ifCond ../userId userId }}
 
       <div class="BtnSuppCom">
         <form method="POST" enctype="application/x-www-form-urlencoded" action="/deleteComment/{{_id}}/?_method=delete">
 
           <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit"
-            class="btnSuppComAvisClients"><i class="fa-solid fa-trash"></i></button>
-          {{/ifCond}}
-        </form>
+            class="btnSuppComAvisClients"><i class="fa-solid fa-trash"></i> Supprimer </button>
+          
+        </form>{{/ifCond}}
       </div>
       </div>
 
@@ -100,7 +101,7 @@
 
 
     </div>
-    <div class="paginationavisClients" aria-label="Page navigation example justify-content-center  ">
+    <div class="paginationavisClients" aria-label="Page navigation example  ">
       <ul class="pagination">
         {{#paginate pagination type="first"}}
         <li {{#if disabled}} class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Début</a></li>
@@ -124,7 +125,7 @@
         {{/paginate}}
       </ul>
     </div>
-  </section>
-  </div>
 
+ 
+  </section>
 </main>
