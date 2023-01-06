@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const acceuil = require('./controllers/acceuil')
+const accueil = require('./controllers/accueil')
 const inscription = require('./controllers/inscription')
 const connexion = require('./controllers/connexion')
 const gestion = require('./controllers/gestion')
@@ -11,8 +11,8 @@ const prestations=require('./controllers/prestations')
 const contact=require('./controllers/contact')
 const avisClients = require('./controllers/avisClients')
 const gestionCommentaires=require('./controllers/gestionCommentaires')
-
-
+const gestionContacts=require('./controllers/gestionContacts')
+const updateComment=require('./controllers/updateComment')
 
 //------------------- mes middleware------------------
 const multer= require('./middleware/multer')
@@ -24,7 +24,7 @@ const validConnexion=require('./middleware/validConnexion')
 
 
 router.route('/')
-    .get(acceuil.get)
+    .get(accueil.get)
 
 router.route('/monParcours')
     .get(monParcours.get)
@@ -78,11 +78,20 @@ router.route('/avisClients')
 router.route('/gestionCommentaires') 
     .get(auth,gestionCommentaires.get)
 
-router.route('/updateComment/:id')
-.get(avisClients.get)
-    .put(auth,avisClients.put)
+
+
+router.route('/updateComment/:id')    
+    .get(updateComment.get)
+    .put(auth,updateComment.put)
 
 router.route('/deleteComment/:id')
     .delete(auth,checkUsers,avisClients.deleteComment)
+
+router.route('/gestionContacts')
+    .get(auth,gestionContacts.get)
+    
+
+ router.route('/deleteContacts/:id')   
+    .delete(auth,gestionContacts.deleteContacts)
 
 module.exports = router

@@ -1,7 +1,10 @@
 const users = require('../models/users')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+require('dotenv').config();
 
+
+const PASS_SECRET = process.env.PASS_SECRET
 const LocalStorage = require('node-localstorage')
 
 
@@ -32,7 +35,6 @@ module.exports = {
 
                         res.cookie("token",
 
-
                             jwt.sign(
                                 {
                                     name: users.name,
@@ -40,7 +42,7 @@ module.exports = {
                                     role: users.role,
 
                                 },
-                                'RANDOM_TOKEN_SECRET',
+                                PASS_SECRET,
                                 { expiresIn: '24h' },
                             )
 

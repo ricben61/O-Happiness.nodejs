@@ -113,10 +113,8 @@ module.exports = {
                 // console.log("2");
                 next()
             }
-
              
             },res.redirect("connexion")
-            
             
             )
            
@@ -141,12 +139,11 @@ module.exports = {
             return res.status(422).render('inscription', { errors: errors.array(),  updateUsers: true, 'users': user });
         }
         
-        const passwordHash = bcrypt.hashSync(req.body.password,10);
-
+       
         await users.findByIdAndUpdate(req.params.id, {
             name: req.body.name.toLowerCase(),
             email: req.body.email,
-            password: passwordHash,
+           
             role:req.body.role,
 
         }),

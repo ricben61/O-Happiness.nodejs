@@ -2,7 +2,7 @@
 
     <div class="container-lg mt-5 mb-4">
 
-        <div class="table-wrapper text-center">
+        <div class=" table-responsive text-center" style="width: 100%;">
             
                 <div class="row text-center">
                     
@@ -10,14 +10,14 @@
                    
                 </div>
            
-            <table class="table table-bordered border-dark" style="background-color: #BAD2B0;">
+            <table class="tableauGestion table-bordered border-dark " >
                 <thead>
                     <tr class="text-center">
-                        <th>Nom <i class="fa-sharp fa-solid fa-sort"></i></th>
-                        <th>Role <i class="fa-sharp fa-solid fa-sort"></i></th>
-                        <th>Email <i class="fa-sharp fa-solid fa-sort"></i></th>
-                        <th>Date de création <i class="fa-sharp fa-solid fa-sort"></i></th>
-                        <th>Actions </i></th>
+                        <th scope="col">Nom <i class="fa-sharp fa-solid fa-sort"></i></th>
+                        <th scope="col">Role <i class="fa-sharp fa-solid fa-sort"></i></th>
+                        <th scope="col">Email <i class="fa-sharp fa-solid fa-sort"></i></th>
+                        <th scope="col">Date de création <i class="fa-sharp fa-solid fa-sort"></i></th>
+                        <th scope="col">Actions </th>
                     </tr>
                 </thead>
               
@@ -27,12 +27,12 @@
                         <td>{{name}}</td>
                         <td>{{role}}</td>
                         <td>{{email}}</td>
-                        <td>{{moment createdAt format= "DD/MM/YYYY"}} à {{moment createdAt format="HH:mm"}}</td>
+                        <td>{{moment createdAt format= "DD/MM/YYYY"}} à<br> {{moment createdAt format="HH:mm"}}</td>
                         <td class="text-center">
-                            <a class="btn btn-primary " href="/updateUser/{{_id}}" style="width: 100%;"><i class="fa-solid fa-pen-to-square"></i> Modifier </a>
+                            <a class="btn  " href="/updateUser/{{_id}}" style="width: 100%; background-color: #66b1f2;"><i class="fa-solid fa-pen-to-square"></i> Modifier </a>
                     <form method="POST" enctype="application/x-www-form-urlencoded"
                     action="/deleteUser/{{_id}}/?_method=delete">
-                    <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit" class="btn btn-danger " style="width: 100%;"><i class="fa-solid fa-trash"></i> Supprimer</button>
+                    <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit" class="btn  " style="width: 100%; background-color: #ee9a9a;"><i class="fa-solid fa-trash"></i> Supprimer</button>
                 </form>
                         </td>
                     </tr>

@@ -1,10 +1,15 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+
+const PASS_SECRET = process.env.PASS_SECRET
+
 
 module.exports = (req, res, next) => {
 
     const token = req.cookies.token;
     if (token) {
-        jwt.verify(token, 'RANDOM_TOKEN_SECRET', async (err, decodedToken) => {
+        jwt.verify(token, PASS_SECRET, async (err, decodedToken) => {
 
             
             if (err) {

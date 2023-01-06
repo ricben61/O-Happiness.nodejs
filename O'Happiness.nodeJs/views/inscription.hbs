@@ -24,30 +24,10 @@
             <input id="InputInscription" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                 value="{{users.email}}">
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Mot de passe:</label>
-            <input id="myInput" name="password"  type="password" class="form-control" id="exampleInputPassword1"
-                placeholder="Mot de passe">
-            
-        </div>
-        <div class="form-group mb-3 ">
-            <label for="exampleInputPassword1">Confirmation de mot de passe:</label>
-            <input id="myInput2" name="confirmPassword" type="password" class="form-control rounded-right" id="exampleInputPassword2"
-                placeholder="Confirmation de mot de passe">
-            <input type="checkbox" onclick="myFunction2(),myFunction()"> voir les mots de passe
+        
             
         </div>
         
-        
-        {{!-- <div class="form-group">
-            <label for="exampleInputPassword1">Mot de passe</label>
-            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="form-group mb-3">
-            <label for="exampleInputPassword1">Confirmation de mot de passe:</label>
-            <input name="confirmPassword" type="password" class="form-control" id="exampleInputPassword2"
-                placeholder="Confirmation de mot de passe">
-        </div> --}}
         {{#if errors}}
     <div class="row justify-content-center">
         <div >
@@ -85,13 +65,13 @@
         </div>
         <div class="form-group">
             <label for="myInput">Mot de passe:</label>
-            <input id="myInput" name="password"  type="password" class="form-control" id="exampleInputPassword1"
+            <input id="myInput" name="password"  type="password" class="inputInscription form-control" id="exampleInputPassword1"
                 placeholder="Mot de passe">
             
         </div>
         <div class="form-group mb-3 ">
             <label for="myInput2">Confirmation de mot de passe:</label>
-            <input id="myInput2" name="confirmPassword" type="password" class="form-control rounded-right" id="exampleInputPassword2"
+            <input id="myInput2" name="confirmPassword" type="password" class="inputInscription form-control rounded-right" id="exampleInputPassword2"
                 placeholder="Confirmation de mot de passe">
             <input  type="checkbox" onclick="myFunction2(),myFunction()"> Voir vos mots de passe.
         </div>

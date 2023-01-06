@@ -6,18 +6,18 @@
     {{#if AdMod}}
     {{#each data}}
     <section class="globCom">
-      <form method="POST" enctype="application/x-www-form-urlencoded" action="/updateComment/{{_id}}/?_method=put">
+     
         <p>Avis déposé par {{userName}} le {{moment createdAt format= "DD/MM/YYYY"}} à {{moment createdAt
           format="HH:mm"}}</p>
-        {{!-- <p>Modifié le {{moment updatedAt format="DD/MM/YYYY"}} à {{moment updatedAt format="HH:mm"}}</p> --}}
+        <p>Modifié le {{moment updatedAt format="DD/MM/YYYY"}} à {{moment updatedAt format="HH:mm"}}</p>
 
         <div class="descriptionCom"><textarea name="description" cols="60" rows="2">{{description}}</textarea></div>
 
         <div class="bouttonCommentaire">
-          <div class="BtnModCom">
+          <div class="BtnModCom"><a href="/updateComment/{{_id}}">
             <button type="submit" class="btnModifComAvisClients"><i class="fa-solid fa-pen-to-square"></i>
-              Modifier</button>
-      </form>
+             Modifier</button></a>
+     
       </div>
       <div class="BtnSuppCom">
         <form method="POST" enctype="application/x-www-form-urlencoded" action="/deleteComment/{{_id}}/?_method=delete">
@@ -39,7 +39,7 @@
 
     {{#each data}}
     <section class="globCom">
-      <form method="POST" enctype="application/x-www-form-urlencoded" action="/updateComment/{{_id}}/?_method=put">
+    
         <p>Avis deposer par {{userName}} le {{moment createdAt format= "DD/MM/YYYY"}} à {{moment createdAt
           format="HH:mm"}}</p>
         {{!-- <p>Modifié le {{moment updatedAt format="DD/MM/YYYY"}} à {{moment updatedAt format="HH:mm"}}</p> --}}
@@ -53,11 +53,14 @@
         {{#ifCond ../userId userId }}
 
         <div class="bouttonCommentaire">
-          <div class="BtnModCom">
-            <button type="submit" class="btnModifComAvisClients"><i class="fa-solid fa-pen-to-square"></i> Modifier </button>
-          </div>
+          <a href="/updateComment/{{_id}}">
+            <button type="submit" class="btnModifComAvisClients"><i class="fa-solid fa-pen-to-square"></i>
+             Modifier</button>
+          </a>
+
+        </div>     
             {{/ifCond}}
-      </form>
+    
       
 
       {{!-- ifcond permet de faire une fonction en fonction de ce quon a declarer dans le fichier server.js --}}
@@ -100,9 +103,9 @@
     {{/if}}
 
 
-    </div>
-    <div class="paginationavisClients" aria-label="Page navigation example  ">
-      <ul class="pagination">
+    
+    <div class="paginationavisClients " aria-label="Page navigation example  ">
+      <ul class="pagination ">
         {{#paginate pagination type="first"}}
         <li {{#if disabled}} class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Début</a></li>
         {{/paginate}}
@@ -125,7 +128,7 @@
         {{/paginate}}
       </ul>
     </div>
-
+</div>
  
   </section>
 </main>

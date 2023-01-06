@@ -1,5 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
-
+*{
+  font-family: "acme",sans-serif;
+}
 
 #btn-back-to-top {
   position: fixed;
@@ -7,43 +11,113 @@
   right: 10px;
   display: none;
 }
-th:hover{
+
+th:hover {
   cursor: pointer;
 }
+
+#cookiePopup {
+  background: white;
+  width: 25%;
+  position: fixed;
+  left: 10px;
+  bottom: 20px;
+  box-shadow: 0px 0px 15px #cccccc;
+  padding: 5px 10px;
+}
+
+#cookiePopup p {
+  text-align: left;
+  font-size: 15px;
+  color: #4e4e4e;
+}
+
+#cookiePopup button {
+  width: 100%;
+  border: navajowhite;
+  background: #097fb7;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+
+ul.pagination {
+  margin: auto;
+}
+
 
 
 
 
 /* ---------------------------------------------------------------------css de la navbar--------------------------------------------------------------- */
-.navbar {
-  list-style: none;
-  background-color: #BAD2B0;
-  padding: 0;
+@media screen and (max-width: 990px) {
+
+  .navbar {
+    list-style: none;
+    background-color: #BAD2B0;
+    padding: 0;
+  }
+
+  .nav-item {
+    margin-left: 20px;
+  }
+
+  ul.dropdown-menu.show {
+    margin: 0;
+  }
+
+  .navbar-nav .dropdown-menu {
+    margin-left: 10px;
+  }
+
+
+  #navbarDropdownMenuLink {
+    margin: 0;
+    margin-left: 20px;
+    color: #394512;
+
+  }
+  
+
+  .navbar-nav .dropdown-menu {
+    width: 50%;
+  }
+
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
-  color: #ffffff;
-  border-radius: 15px;
-  font-size: 1.2rem;
+@media screen and (min-width: 990px) {
+
+  .navbar {
+    list-style: none;
+    background-color: #BAD2B0;
+    padding: 0;
+  }
+
+  .navbar-nav .nav-link.active,
+  .navbar-nav .show>.nav-link {
+    color: #ffffff;
+    border-radius: 15px;
+    font-size: 1.2rem;
+  }
+
+
+  #navbarDropdownMenuLink {
+    
+    padding-top: 8px;
+    margin-left: 60px;
+    color: #394512;
+
+  }
+
+  .navbar-nav .dropdown-menu {
+    margin-left: 25px;
+  }
 }
-
-
-.pBonjour {
-  margin: auto;
-  margin-left: 100px;
-  color: #394512;
-
-}
-
-.navbar-nav .dropdown-menu {
-  margin-left: -90px;
-}
-
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* -----------------------------------------------------css de la page d'acceuil---------------------------------------------------------------------- */
+/* -----------------------------------------------------css de la page d'accueil---------------------------------------------------------------------- */
 
-.mainAcceuil {
+.mainAccueil {
   width: 100%;
   height: 87vh;
 }
@@ -51,12 +125,12 @@ th:hover{
 /* --------je commence en first mobile donc je fait le css jusqua la taille 800 -------- */
 @media screen and (max-width: 800px) {
 
-  .mainAcceuil {
+  .mainAccueil {
     padding: 0;
     height: 87vh;
   }
 
-  .imgAcceuil {
+  .imgAccueil {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -65,7 +139,7 @@ th:hover{
     z-index: -1;
   }
 
-  .titreAcceuil {
+  .titreAccueil {
     padding-top: 35vh;
     /*pour descendre le titre bien au millieu de l'image*/
     font-family: "Great Vibes";
@@ -79,14 +153,14 @@ th:hover{
     /*pour faire ressortir le titre*/
   }
 
-  .titreH3Acceuil {
+  .titreH3Accueil {
     color: rgb(0, 0, 0);
     text-align: center;
     font-size: 4vw;
     font-family: "Great Vibes";
   }
 
-  .pAcceuil {
+  .pAccueil {
     color: rgb(0, 0, 0);
     text-align: center;
     font-size: 2vw;
@@ -98,18 +172,18 @@ th:hover{
 /* ----------pour les ecran de tablette------------- */
 @media all and (min-width: 800px) and (max-width: 1200px) {
 
-  .mainAcceuil {
+  .mainAccueil {
     padding: 0;
   }
 
-  .imgAcceuil {
+  .imgAccueil {
     width: 100%;
     height: 87%;
     position: absolute;
     z-index: -1;
   }
 
-  .titreAcceuil {
+  .titreAccueil {
     padding-top: 33vh;
     font-family: "Great Vibes";
     text-align: center;
@@ -118,14 +192,14 @@ th:hover{
     text-shadow: 0px 3px 0px black;
   }
 
-  .titreH3Acceuil {
+  .titreH3Accueil {
     color: rgb(0, 0, 0);
     text-align: center;
     font-size: 3vw;
     font-family: "Great Vibes";
   }
 
-  .pAcceuil {
+  .pAccueil {
     color: rgb(0, 0, 0);
     text-align: center;
     font-size: 1.5vw;
@@ -137,12 +211,12 @@ th:hover{
 /* et pour finir le css pour les ecrans superieur a 1200 px */
 @media screen and (min-width: 1200px) {
 
-  .mainAcceuil {
+  .mainAccueil {
     padding: 0;
     height: 86vh;
   }
 
-  .imgAcceuil {
+  .imgAccueil {
     padding: 0;
     width: 100%;
     height: 88vh;
@@ -150,7 +224,7 @@ th:hover{
     z-index: -1;
   }
 
-  .titreAcceuil {
+  .titreAccueil {
     padding-top: 25vh;
     font-family: "Great Vibes";
     text-align: center;
@@ -159,7 +233,7 @@ th:hover{
     text-shadow: 0px 3px 0px black;
   }
 
-  .titreH3Acceuil {
+  .titreH3Accueil {
     color: rgb(0, 0, 0);
     text-align: center;
     font-size: 2.5vw;
@@ -167,7 +241,7 @@ th:hover{
     font-family: "Great Vibes";
   }
 
-  .pAcceuil {
+  .pAccueil {
     color: rgb(0, 0, 0);
     text-align: center;
     font-size: 1.5vw;
@@ -449,6 +523,10 @@ main {
     margin-top: 10px;
 
   }
+  #btnVoirPlusOutilsetMethodes {
+    background-color: #BAD2B0;
+
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -598,10 +676,13 @@ main {
     padding: 15px;
     margin-top: 20px;
   }
- 
-  #btnVoirPlusOutilsetMethodes:hover{
+  #btnVoirPlusOutilsetMethodes {
+    background-color: #BAD2B0;
+
+  }
+  #btnVoirPlusOutilsetMethodes:hover {
     background-color: #667461;
-    
+
   }
 }
 
@@ -823,7 +904,7 @@ main {
 
 .mainPrestations {
   padding: 7vh 4vw 0vw 4vw;
-  height: 86vh;
+  height: auto;
 }
 
 @media screen and (max-width: 800px) {
@@ -1215,8 +1296,7 @@ main {
   }
 
   .h1Contact {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    
     text-align: center
   }
 
@@ -1316,8 +1396,7 @@ main {
   }
 
   .h1Contact {
-    padding-top: 15px;
-    padding-bottom: 15px;
+
     text-align: center
   }
 
@@ -1387,7 +1466,7 @@ main {
 
   #sujetContact {
     width: 80%;
-    height: 15vh;
+    height: 10vh;
     text-align: center;
     border-radius: 10px 10px 0 0;
     background-color: rgba(153, 153, 153, 0.401);
@@ -1405,90 +1484,177 @@ main {
 
 /* -------------------------------------------------------------------------------------------------------------------------------- */
 /* ---------------------------------------css page connexion------------------------------------------------------------------------ */
+@media screen and (min-width: 800px) {
+  .mainConnexion {
+    margin: auto;
+    margin-top: 8vh;
+    width: 75%;
+    height: 80vh;
+    border-radius: 20px;
+  }
 
-.mainConnexion {
-  margin: auto;
-  margin-top: 8vh;
-  width: 75%;
-  height: 80vh;
-  border-radius: 20px;
+  .formConnexion {
+    background-color: #BAD2B0;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    min-width: 180px;
+    min-height: 300px;
+    text-align: center;
+    border-radius: 25px;
+    margin: auto;
+  }
+
+  .h1Connexion {
+    font-size: 1.5rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center
+  }
+
+  .texteConnexion {
+    width: 100%;
+    text-align: center;
+
+  }
+
+  .inputConnexion.form-control {
+    width: 80%;
+    text-align: center;
+    background-color: #BAD2B0;
+    border-radius: 0;
+    border-bottom: solid 1px black;
+  }
+
+  .inputConnexion {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    background-color: #BAD2B0;
+    border: 0;
+    border-bottom: solid 1px black;
+  }
+
+  .labelConnexion {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .checkboxConnexion {
+    width: auto;
+    margin: 15px 0;
+  }
+
+  .inputConnexion::placeholder {
+    font-style: italic;
+  }
+
+  .submitConnexion {
+    width: 30%;
+    text-align: center;
+    background-color: #BAD2B0;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 1.5vw;
+  }
+
+  .submitConnexion:hover {
+    background-color: #667461;
+  }
 }
 
-.formConnexion {
-  background-color: #BAD2B0;
-  margin: auto;
-  width: 50%;
-  height: 50%;
-  min-width: 180px;
-  min-height: 300px;
-  text-align: center;
-  border-radius: 25px;
-  margin: auto;
+@media screen and (max-width: 800px) {
+  .mainConnexion {
+    margin: auto;
+    margin-top: 8vh;
+    width: 75%;
+    height: 80vh;
+    border-radius: 20px;
+  }
+
+  .formConnexion {
+    background-color: #BAD2B0;
+    margin: auto;
+    width: 90%;
+    text-align: center;
+    border-radius: 25px;
+    margin: auto;
+  }
+
+  .h1Connexion {
+    font-size: 1.5rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center
+  }
+
+  .texteConnexion {
+    width: 100%;
+    text-align: center;
+
+  }
+
+  .inputConnexion.form-control {
+    width: 80%;
+    text-align: center;
+    background-color: #BAD2B0;
+    border-radius: 0;
+    border-bottom: solid 1px black;
+  }
+
+  .inputConnexion {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    background-color: #BAD2B0;
+    border: 0;
+    border-bottom: solid 1px black;
+  }
+
+  .labelConnexion {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .checkboxConnexion {
+    width: auto;
+    margin: 15px 0;
+  }
+
+  .inputConnexion::placeholder {
+    font-style: italic;
+  }
+
+  .submitConnexion {
+    width: 30%;
+    text-align: center;
+    background-color: #BAD2B0;
+    border-radius: 10px;
+    border: 1px solid black;
+    min-width: 90px;
+  }
+
+  .submitConnexion:hover {
+    background-color: #667461;
+    
+  }
 }
 
-.h1Connexion {
-  font-size: 1.5rem;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  text-align: center
-}
 
-.texteConnexion {
-  width: 100%;
-  text-align: center;
 
-}
 
-.inputConnexion.form-control {
-  width: 80%;
-  text-align: center;
-  background-color: #BAD2B0;
-  border-radius: 0;
-  border-bottom: solid 1px black;
-}
 
-.inputConnexion {
-  width: 80%;
-  text-align: center;
-  margin: auto;
-  background-color: #BAD2B0;
-  border: 0;
-  border-bottom: solid 1px black;
-}
 
-.labelConnexion {
-  margin-top: 10px;
-  text-align: center;
-}
 
-.checkboxConnexion {
-  width: auto;
-  margin: 15px 0;
-}
 
-.inputConnexion::placeholder {
-  font-style: italic;
-}
 
-.submitConnexion {
-  width: 30%;
-  text-align: center;
-  background-color: #BAD2B0;
-  border-radius: 10px;
-  border: 1px solid black;
-  font-size: 1.5vw;
-}
-
-.submitConnexion:hover {
-  background-color: #667461;
-}
 
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* -----------------------------------css de la page avis clients------------------------------------------------------------ */
 
 .mainAvisClients {
   /* height:85vh; */
-  
+
   display: grid;
 
 }
@@ -1535,53 +1701,64 @@ main {
 .BtnSuppCom {
   display: inline-block;
 }
-.titreRechecheAvisClients{
+
+.titreRechecheAvisClients {
   display: flex;
   text-align: center;
   justify-content: space-around;
-  
+
 }
-.h2avisClients{
+
+.h2avisClients {
   display: inline-block;
-  
+
 }
-.posterCommentaireavisClients{
+
+.posterCommentaireavisClients {
   width: 100%;
   margin: auto;
   display: flex;
   justify-content: space-between;
 }
-.PosterCommentaires{
+
+.PosterCommentaires {
   width: 40%;
   margin-left: 15px;
 }
-.paginationavisClients{
+
+.paginationavisClients {
   margin-right: 15px;
 }
-.btnModifComAvisClients{
+
+.btnModifComAvisClients {
   background-color: rgb(83, 118, 221);
   border-radius: 15px;
+  padding: 0.50rem;
 }
-.btnSuppComAvisClients{
+
+.btnSuppComAvisClients {
   background-color: rgb(237, 104, 130);
   border-radius: 15px;
+  padding: 0.50rem;
 }
-.popup{
+
+.popup {
   position: absolute;
   z-index: 9999;
   margin: auto;
 }
-@media screen and (max-width: 800px){
 
-  .mainAvisClients{
+@media screen and (max-width: 800px) {
+
+  .mainAvisClients {
     display: block;
-  
+
   }
 
   .gridCom {
     display: block;
   }
-  
+
   .globCom {
     width: 95%;
     margin: auto;
@@ -1589,68 +1766,78 @@ main {
     background-color: #BAD2B0;
     margin: 15px;
     text-align: center;
-  
+
   }
-  
+
   .bouttonCommentaire {
     width: 100%;
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 15px;
     justify-content: space-around;
   }
-  
+
   .descriptionCom textarea {
     resize: none;
     border: none;
-    width:200px;
+    width: 200px;
     background-color: #BAD2B0;
     text-align: center;
   }
-  
+
   .BtnModCom {
     display: inline-block;
   }
-  
+
   .BtnSuppCom {
     display: inline-block;
   }
-  .titreRechecheAvisClients{
+
+  .titreRechecheAvisClients {
     display: flex;
     text-align: center;
     justify-content: space-around;
-    
+
   }
-  .h2avisClients{
+
+  .h2avisClients {
     display: inline-block;
-    
+
   }
-  .posterCommentaireavisClients{
-      
+
+  .posterCommentaireavisClients {
+
     display: block;
     justify-content: space-between;
   }
-  .PosterCommentaires{
+
+  .PosterCommentaires {
     width: 200px;
     margin-left: 15px;
   }
- .descrptionCommentaire{
-  width: 350px;
- }
-  .btnModifComAvisClients{
+
+  .descrptionCommentaire {
+    width: 350px;
+  }
+
+  .btnModifComAvisClients {
     background-color: rgb(83, 118, 221);
     border-radius: 15px;
   }
-  .btnSuppComAvisClients{
+
+  .btnSuppComAvisClients {
     background-color: rgb(237, 104, 130);
     border-radius: 15px;
   }
- .paginationavisClients{
-  width: 250px;  
- }
-  .page-link{
-  padding: 0.5vh;
-  size: 1.5vh;
- }
+
+  .paginationavisClients {
+    width: 250px;
+  }
+
+  .page-link {
+    padding: 0.5vh;
+    size: 1.5vh;
+  }
 }
 
 
@@ -1665,7 +1852,6 @@ main {
 
 #sectionInscription {
   width: 60%;
-
   margin: auto;
   background-color: RGB(186, 210, 176);
   border-radius: 10px;
@@ -1680,13 +1866,14 @@ main {
 .FormulaireInscription {
   width: 70%;
   margin: auto;
-  padding: 25px;
+  padding: 10px;
   text-align: center;
- 
+
 
 }
 
-#InputInscription,#nameInscription {
+#InputInscription,
+#nameInscription {
   background-color: #BAD2B0;
   border: 0;
   border-radius: 0;
@@ -1697,8 +1884,8 @@ main {
 
 }
 
-#myInput,
-#myInput2 {
+.inputInscription {
+  width: 100%;
   background-color: #BAD2B0;
   border: 0;
   border-radius: 0;
@@ -1708,28 +1895,169 @@ main {
   padding-bottom: 0;
 
 }
+
+@media screen and (max-width: 800px) {
+
+  #sectionInscription {
+    width: 80%;
+    margin: auto;
+    background-color: RGB(186, 210, 176);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+
+  }
+
+  .h1TitreInscription {
+    width: 100%;
+    text-align: center;
+  }
+
+  .FormulaireInscription {
+    width: 100%;
+    text-align: center;
+  }
+
+  #InputInscription,
+  #nameInscription {
+    width: 100%;
+    background-color: #BAD2B0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: solid 1px black;
+    text-align: center;
+    font-style: italic;
+    padding-bottom: 0;
+
+  }
+
+  .inputInscription {
+    width: 100%;
+    background-color: #BAD2B0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: solid 1px black;
+    text-align: center;
+    font-style: italic;
+    padding-bottom: 0;
+
+  }
+}
+
+
+
+
+
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------- */
 
-/* -----------------------------------------------------------------css page gestion de mes recettes--------------------------------------------- */
+/* -----------------------------------------------------------------css page gestion --------------------------------------------- */
+.gestionContacts {
+  width: auto;
+  height: 83vh;
+}
 
+.tableauGestion {
+  background-color: #BAD2B0;
+  width: 100%;
+}
 
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+/* ---------------------------------------------css page updateComment---------------------------------------------------------------- */
+.mainupdateComment {
+  height: 86vh;
+  text-align: center;
+}
 
+.modifUpdateComment {
+  background-color: #BAD2B0;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  min-width: 180px;
+  min-height: 300px;
+  text-align: center;
+  border-radius: 25px;
+  margin: auto;
+}
 
+.h3UpdateComment {
+  width: 100%;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
 
+.formUpdateCmment {
+  width: 70%;
+  height: 60%;
+  text-align: center;
+  margin: auto;
 
+}
 
+.descrptionUdateComment {
+  width: 90%;
+  height: 70%;
+}
 
+.btnupdateComment {
+  margin-top: 25px;
+  width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .mainupdateComment {
+    width: 100%;
+    height: 86vh;
+    text-align: center;
+  }
+
+  .modifUpdateComment {
+    background-color: #BAD2B0;
+    margin: auto;
+    width: 90vw;
+    height: 350px;
+    text-align: center;
+    border-radius: 25px;
+    margin: auto;
+  }
+
+  .h3UpdateComment {
+    width: 100%;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .formUpdateCmment {
+    width: 70%;
+    height: 60%;
+    text-align: center;
+    margin: auto;
+
+  }
+
+  .descrptionUdateComment {
+    width: 90%;
+    height: 70%;
+  }
+
+  .btnupdateComment {
+    margin-top: 25px;
+    width: 50vw;
+  }
+}
 
 /* ------------------------------------------------------------------------------------------------------------------------------ */
 /* ----------------------------------css page verify--------------------------------------------------------------------------------- */
-.mainVerify{
+.mainVerify {
 
   height: 90vh;
   text-align: center;
-      
+
 }
-#DivVerify{
+
+#DivVerify {
   width: 90%;
   height: 60%;
   background-color: #BAD2B0;
@@ -1802,40 +2130,45 @@ main {
   margin-right: 5px;
   margin-left: 5px;
 }
-@media all and (min-width: 800px) and (max-width: 1200px){
+
+@media all and (min-width: 800px) and (max-width: 1200px) {
   .footer {
     width: 100%;
+
     height: auto;
     background-color: rgb(186, 210, 176);
     color: rgba(0, 0, 0, 0.96);
     display: flex;
   }
+
   .pageFooter {
-    width:55%;
+    width: 55%;
     text-align: center;
   }
+
   .copyrightFooter {
     width: 15%;
     text-align: center;
   }
-  
+
   .reseauFooter {
     width: 30%;
     text-align: center;
   }
-  
-  
+
+
   .reseauFooter ul {
     /*pour avoir qu'une colonne de reseau*/
     display: block;
   }
 }
+
 @media screen and (max-width: 800px) {
 
   .footer {
     width: 100%;
     height: auto;
-   
+
   }
 
   .ulFooter {
@@ -1844,22 +2177,26 @@ main {
     grid-template-columns: repeat(2, 1fr);
     padding-left: 0;
   }
+
   .pageFooter {
     width: 50%;
     text-align: center;
   }
+
   .copyrightFooter {
     width: 20%;
     text-align: center;
   }
-  
+
   .reseauFooter {
     width: 30%;
     text-align: center;
   }
+
   .reseauFooter ul {
     /*pour avoir qu'une colonne de reseau*/
     display: block;
   }
 }
+
 /* ------------------------------------------------------------------ */

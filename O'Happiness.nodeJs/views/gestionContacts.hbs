@@ -1,0 +1,82 @@
+<main class="gestionContacts">
+
+<div class="container-lg mt-5 mb-4">
+
+    <div class="  text-center" style="width: 100%;">
+
+        <div class="row text-center">
+
+            <h2>Messages</h2>
+
+        </div>
+
+        <table class="tableauGestion table-bordered border-dark ">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">Nom <i class="fa-sharp fa-solid fa-sort"></i></th>
+                    <th scope="col">Prenom <i class="fa-sharp fa-solid fa-sort"></i></th>
+                    <th scope="col">Email <i class="fa-sharp fa-solid fa-sort"></i></th>
+                    <th scope="col">Question <i class="fa-sharp fa-solid fa-sort"></i></th>
+                    <th scope="col">Message </th>
+                    <th scope="col">Date de création <i class="fa-sharp fa-solid fa-sort"></i></th>
+                    <th scope="col">Action </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{nom}}</td>
+                    <td>{{prenom}}</td>
+                    <td><a href="mailto:{{email}}">{{email}}</a></td>
+                    <td>{{question}}</td>
+                    <td>{{message}}</td>
+                    <td>{{moment createdAt format= "DD/MM/YYYY"}} à<br> {{moment createdAt format="HH:mm"}}</td>
+                    <td class="text-center">
+                        <form method="POST" enctype="application/x-www-form-urlencoded"
+                            action="/deleteContacts/{{_id}}/?_method=delete">
+
+                            <button onclick='return confirm("Êtes-vous sûr de vouloir supprimer?")' type="submit"
+                                class="btn  " style="width: 100%; background-color: #ee9a9a;"><i
+                                    class="fa-solid fa-trash"></i> Supprimer</button>
+
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+
+
+        </table>
+    </div>
+
+</div>
+<div class="paginationavisClients   " aria-label="Page navigation example  ">
+      <ul class="pagination  justify-content-end me-5 ">
+        {{#paginate pagination type="first"}}
+        <li {{#if disabled}} class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Début</a></li>
+        {{/paginate}}
+
+        {{#paginate pagination type="previous"}}
+        <li {{#if disabled}} class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Précedent</a>
+        </li>
+        {{/paginate}}
+
+        {{#paginate pagination type="middle" limit=pagination.pageCount}}
+        <li {{#if active}} class="pageNumber active" {{/if}}><a class="page-link" href="?p={{n}}">{{n}}</a></li>
+        {{/paginate}}
+
+        {{#paginate pagination type="next"}}
+        <li {{#if disabled}} class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Suivant</a></li>
+        {{/paginate}}
+
+        {{#paginate pagination type="last"}}
+        <li {{#if disabled}}class="pageNumber disabled" {{/if}}><a class="page-link" href="?p={{n}}">Dernier</a></li>
+        {{/paginate}}
+      </ul>
+    </div>
+
+
+
+
+</main>

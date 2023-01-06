@@ -1,7 +1,9 @@
+
 const commentaire = require('../models/commentaire');
 const users= require ('../models/users')
 const jwt = require('jsonwebtoken');
-
+require('dotenv').config();
+const PASS_SECRET = process.env.PASS_SECRET
 
 module.exports={
     get: async(req, res) => {
@@ -10,7 +12,7 @@ module.exports={
 
         const token = req.cookies.token
       
-       const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+       const decodedToken = jwt.verify(token, PASS_SECRET );
     //    on crée des constantes pour pour dechifrer et trouver le bon utilisateur
        const userId = decodedToken.userId;  
 

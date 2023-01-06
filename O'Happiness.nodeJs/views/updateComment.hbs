@@ -1,0 +1,14 @@
+<main class="mainupdateComment">
+
+<section class="modifUpdateComment">
+    
+      <h3 class="h3UpdateComment">Modifier votre commentaire.</h3>
+      <form method="POST" enctype="application/x-www-form-urlencoded" action="/updateComment/{{_id}}/?_method=put" class="formUpdateCmment">
+      {{!-- <form class="formAvisClients" method="POST" enctype="application/x-www-form-urlencoded" action="/avisClients/"> --}}
+        <textarea class="descrptionUdateComment" name="description" class="textareaAvisClient" 
+          placeholder="écrivez votre nouveau commentaire" >{{description}}</textarea>
+        <button type="submit" class="btnupdateComment">Modifier commentaire</button>
+      </form>
+  
+   
+</main>

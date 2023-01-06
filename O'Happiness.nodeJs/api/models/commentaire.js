@@ -6,7 +6,6 @@ const commentaireSchema = mongoose.Schema({
   
   description: { type: String, required: true },
   userId:  { type: String }, 
-  recetteId:{type:String},
   userName:{type:String},
 },
     
