@@ -72,7 +72,6 @@ module.exports = {
     },
     
     post:async (req, res) => {
-
         rand = Math.floor ((Math.random()*100)+54)//pour crée un chiffre aleatoire
         host = req.get('host') //recupere l'adress du site hebergant le mail
         link = "http://"+host+"/verify/" + rand
@@ -143,7 +142,6 @@ module.exports = {
         await users.findByIdAndUpdate(req.params.id, {
             name: req.body.name.toLowerCase(),
             email: req.body.email,
-           
             role:req.body.role,
 
         }),

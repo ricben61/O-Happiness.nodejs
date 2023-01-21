@@ -14,7 +14,7 @@ const gestionCommentaires=require('./controllers/gestionCommentaires')
 const gestionContacts=require('./controllers/gestionContacts')
 const updateComment=require('./controllers/updateComment')
 
-//------------------- mes middleware------------------
+//------------------- mes middlewares------------------
 const multer= require('./middleware/multer')
 const validUsers= require('./middleware/validUsers')
 const auth = require('./middleware/auth')

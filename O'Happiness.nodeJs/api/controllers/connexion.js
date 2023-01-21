@@ -15,9 +15,6 @@ module.exports = {
 
     post: async (req, res, next) => {
 
-
-
-
         users.findOne({ name: req.body.name })
             .then(async users => {
                 if (!users) {

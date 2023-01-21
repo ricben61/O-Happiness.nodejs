@@ -18,15 +18,11 @@ module.exports={
 
     await commentaire.find(req.params.id).sort( {createdAt : -1 } ).skip((perPage * page) - perPage).limit(perPage).lean().exec(async (err, commentaireData) => {
         await commentaire.find(req.params.id).countDocuments().lean().exec((err, count) => {
-           
-           
-           
-           
+
             if (err) {
                 req.flash('error_msg')
                 return res.redirect('/')
             }
-
             if (commentaireData) {
 
                 res.render('avisClients', {active:{avisClients:true},
