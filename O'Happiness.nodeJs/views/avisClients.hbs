@@ -40,7 +40,7 @@
     {{#each data}}
     <section class="globCom">
     
-        <p>Avis deposer par {{userName}} le {{moment createdAt format= "DD/MM/YYYY"}} à {{moment createdAt
+        <p>Avis deposé par {{userName}} le {{moment createdAt format= "DD/MM/YYYY"}} à {{moment createdAt
           format="HH:mm"}}</p>
         {{!-- <p>Modifié le {{moment updatedAt format="DD/MM/YYYY"}} à {{moment updatedAt format="HH:mm"}}</p> --}}
         {{#ifCond ../userId userId }}
@@ -89,7 +89,7 @@
       <form class="formAvisClients" method="POST" enctype="application/x-www-form-urlencoded" action="/avisClients/">
         <textarea class="descrptionCommentaire" name="description" class="textareaAvisClient" cols="70" rows="5"
           placeholder="écrivez votre commentaire"></textarea>
-        <button type="submit" class="btnPosterAvisClients">Ajouté un commentaire</button>
+        <button type="submit" class="btnPosterAvisClients">Ajouter un commentaire</button>
       </form>
     </div>
     {{else}}
